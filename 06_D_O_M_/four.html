@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>Language</li>
+    </ul>
+</body>
+<script>
+    function addLangname(langName){
+        const list_item = document.createElement('li')
+        list_item.innerHTML = `${langName}`;
+        document.querySelector('.language').appendChild(list_item)
+    }
+    addLangname("Java")
+    addLangname("Golang")
+    addLangname("Cpp")
+
+    //Adding language in the optimized way
+    //Try to use append child rather than Inner html
+    function addOptiLang(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang('Ruby')
+
+    //Edit 
+    const second_Element = document.querySelector('li:nth-child(2)');
+    const new_li = document.createElement('li');
+    new_li.textContent = 'C'
+    second_Element.replaceWith(new_li)
+
+    //eidt 
+
+    const first_element = document.querySelector('li:first-child');
+    const first_li = document.createElement('li');
+    first_li.textContent = 'Java';
+    first_element.replaceWith(first_li)
+
+    //Remove 
+    const lastone = document.querySelector('li:last-child')
+    lastone.remove()
+</script>
+</html>
