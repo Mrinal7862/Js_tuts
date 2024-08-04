@@ -48,7 +48,7 @@ setInterval(()=>{
 }, 1000)
 ```
 
-# Project 4: Project
+# Project 4: Guess the number
 
 ```javascript
     let randomNumber = (Math.random() * 10 + 1).toFixed();
