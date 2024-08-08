@@ -155,3 +155,41 @@ function newGame() {
 }
 
 ```
+# Project 5: Color Changer
+
+```javascript
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    
+    
+    
+    const changeClr = function(){
+      const hex = '0123456789ABCDEF';
+      let color = '#';
+    
+      for(let i = 0; i<6; i++){
+        color += hex[Math.floor(Math.random() * 16)]
+      }
+      return color;
+    
+    }
+    
+    
+    let individualRan;
+    
+    const startChange = function(){
+    
+      const changebg = ()=>{
+        document.body.style.backgroundColor = changeClr();
+      }
+      individualRan = setInterval(changebg, 1000)
+    }
+    
+    const stopChange = function(){
+      console.log("called")
+      clearInterval(individualRan)
+    }
+    
+    start.addEventListener('click', startChange)
+    stop.addEventListener('click', stopChange)
+```
