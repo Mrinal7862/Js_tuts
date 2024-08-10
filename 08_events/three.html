@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+            color: white;
+        }
+        #stop{
+            color: white;
+            background-color: purple;
+            height: 20px;
+            width: 100px;
+        }
+        #stop:hover{
+            color: black;
+            background-color: white;
+            transition: ease-in-out 0.3s;
+            cursor: pointer;
+            height: 100px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shiva ji the boss</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+        const datefunc = function(str){
+            console.log(str, Date.now())
+        }
+
+        
+        const start = document.getElementById("start").addEventListener(
+            'click', ()=>{
+                setInterval(datefunc, 1000, 'hello ji')
+            }
+        )
+        
+
+        const clear = document.getElementById("stop").addEventListener(
+            'click', ()=>{
+                clearInterval();
+            }
+        )
+
+    </script>
+</body>
+</html>
