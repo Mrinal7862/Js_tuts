@@ -48,7 +48,7 @@ setInterval(()=>{
 }, 1000)
 ```
 
-# Project 4: Project
+# Project 4: Guess the number
 
 ```javascript
     let randomNumber = (Math.random() * 10 + 1).toFixed();
@@ -154,4 +154,66 @@ function newGame() {
   })
 }
 
+```
+# Project 5: Color Changer
+
+```javascript
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    
+    
+    
+    const changeClr = function(){
+      const hex = '0123456789ABCDEF';
+      let color = '#';
+    
+      for(let i = 0; i<6; i++){
+        color += hex[Math.floor(Math.random() * 16)]
+      }
+      return color;
+    
+    }
+    
+    
+    let individualRan;
+    
+    const startChange = function(){
+    
+      const changebg = ()=>{
+        document.body.style.backgroundColor = changeClr();
+      }
+      individualRan = setInterval(changebg, 1000)
+    }
+    
+    const stopChange = function(){
+      console.log("called")
+      clearInterval(individualRan)
+    }
+    
+    start.addEventListener('click', startChange)
+    stop.addEventListener('click', stopChange)
+```
+# Project 6: Keyboard identifier
+
+```javascript 
+    const insert = document.getElementById("insert");
+
+    window.addEventListener("keydown", (e)=>{
+      insert.innerHTML = `
+        <div class='color'>
+          <table>
+          <tr>
+            <th>key</th>
+            <th>key code</th>
+            <th>Code</th>
+          </tr>
+          <tr>
+            <td>${e.key === ' '? "space":e.key}</td>
+            <td>${e.keyCode}</td>
+            <td>${e.Code}</td>
+          </tr>
+        </table>
+        </div>
+      `
+})
 ```
