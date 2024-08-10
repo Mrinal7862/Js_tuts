@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#8a8686";>
+    
+</body>
+
+<script>
+
+
+    const bodyCard = document.querySelector("body")
+    bodyCard.style.display = "flex";
+    bodyCard.style.alignItems = "center";
+    bodyCard.style.justifyContent = "center";
+
+    const card = document.createElement("div")
+    const imager = document.createElement("img")
+
+    card.id = "hiteshCard";
+
+    card.style.display = "flex" 
+    card.style.alignItems = "center";
+    card.style.justifyContent = "center";
+    card.style.backgroundColor = "blue";
+    card.style.height = "400px";
+    card.style.width = "200px";
+    card.style.color = 'white'
+    card.style.borderRadius = '30px'
+    card.textContent = "Click the button to get the image"
+    bodyCard.appendChild(card)
+    card.appendChild(imager)
+    card.style.flexDirection = 'column'
+    
+    const reqUrl = 'https://api.github.com/users/Mrinal7862'
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', reqUrl);
+
+    card.addEventListener('click', ()=>{
+
+        xhr.onreadystatechange = function(){
+
+        console.log(xhr);
+        if(xhr.readyState == 4){
+            const data = JSON.parse(this.responseText) ;
+            
+            const image = data.avatar_url;
+
+            imager.src = image 
+            imager.style.height = "200px"
+            imager.style.width = "200px"
+
+            console.log(data)
+
+            const cardHead = document.createElement('h4')
+            card.appendChild(cardHead)
+
+            cardHead.textContent = `Followers are: ${data.followers}`
+            }
+        }
+        xhr.send()
+    })
+
+
+</script>
+</html>
